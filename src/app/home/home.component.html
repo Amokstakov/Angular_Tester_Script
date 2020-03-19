@@ -1,0 +1,63 @@
+<h1>
+    Welcome To BrewnFo
+</h1>
+
+<div class="form-group">
+    <label>
+        Search your favorite beer!
+    </label>
+    <input
+        minlength="3" 
+        maxlength="26" 
+        ngModel
+        #Beer="ngModel"
+        id="Beer"
+        type="text"
+        class="form-control"
+        (change)="onChange(Beer)"
+    >
+</div>
+
+<div class="play-container-search-results" *ngIf="beer">
+    <ul>
+        <li *ngFor="let beer of beer" class="row-list">
+            <a href="{{beer.website_url}}">
+                <p class="name">
+                    {{beer.name}}
+                </p>
+                <p class="country">
+                    {{beer.country}}
+                </p>
+                <p class="beer-type">
+                    {{beer.brewery_type}}
+                </p>
+            </a>
+        </li>
+    </ul>
+
+</div>
+
+<div class="play-container">
+    <p>
+        This site contains all the information on your favorite beer!
+    </p>
+</div>
+
+<div class="play-container" *ngIf="beers">
+    <ul>
+        <li *ngFor="let beer of beers">
+            <p class="name">
+                {{beer.name}}
+            </p>
+            <p class="country">
+                {{beer.country}}
+            </p>
+            <p class="beer-type">
+                {{beer.brewery_type}}
+            </p>
+            <a href="{{beer.website_url}}" class="site">
+                Visit the Website
+            </a>
+        </li>
+    </ul>
+</div>
